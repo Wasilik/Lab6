@@ -15,12 +15,11 @@ int main(void)
     SetConsoleOutputCP(CP_UTF8);
 #endif
 
-    puts("Лабораторна робота №6. Двовимірні масиви");
-    puts("1 — №1011: сортування стовпців за характеристиками");
-    puts("2 — №908: суми діагоналей вище головної");
-    puts("3 — №934: пошук елементів, рівних i + j");
-    puts("4 — №978: перестановка блоків хрест-навхрест");
-    puts("5 — №929: поділ матриці на два масиви");
+    printf("1 — №1011: сортування стовпців за характеристиками\n");
+    printf("2 — №908: суми діагоналей вище головної\n");
+    printf("3 — №934: пошук елементів, рівних i + j\n");
+    printf("4 — №978: перестановка блоків хрест-навхрест\n");
+    printf("5 — №929: поділ матриці на два масиви\n");
     printf("Виберіть завдання: ");
     if (scanf("%d", &task) != 1 || task < 1 || task > 5)
         return 1;
@@ -31,13 +30,13 @@ int main(void)
         return 1;
 
     if (task == 4 && (rows != cols || rows % 2 != 0)) {
-        puts("Потрібна квадратна матриця парного розміру.");
+        printf("Потрібна квадратна матриця парного розміру.\n");
         return 1;
     }
 
     if (task == 3)
-        puts("Рядки та останній стовпець мають строго спадати.");
-    puts("Введіть елементи матриці по рядках:");
+        printf("Рядки та останній стовпець мають строго спадати.\n");
+    printf("Введіть елементи матриці по рядках:\n");
 
     if (task == 2 || task == 4) {
         double a[MAX][MAX];
@@ -48,7 +47,7 @@ int main(void)
 
         if (task == 2) {
             if (cols == 1)
-                puts("Діагоналей вище головної немає.");
+                printf("Діагоналей вище головної немає.\n");
             for (int d = 1; d < cols; d++) {
                 double sum = 0;
                 for (int i = 0; i < rows && i + d < cols; i++)
@@ -61,11 +60,11 @@ int main(void)
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < cols; j++)
                     b[i][j] = a[(i + n) % rows][(j + n) % cols];
-            puts("Нова матриця:");
+            printf("Нова матриця:\n");
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++)
                     printf(" %10g", b[i][j]);
-                puts("");
+                printf("\n");
             }
         }
         return 0;
@@ -100,11 +99,11 @@ int main(void)
             }
         }
 
-        puts("Впорядкована матриця:");
+        printf("Впорядкована матриця:\n");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++)
                 printf(" %10d", a[i][j]);
-            puts("");
+            printf("\n");
         }
         break;
     }
@@ -119,7 +118,7 @@ int main(void)
             }
         }
         if (found == 0)
-            puts("Таких елементів немає.");
+            printf("Таких елементів немає.\n");
         break;
     }
     case 5: {
@@ -139,7 +138,7 @@ int main(void)
         printf("\nВід'ємні:");
         for (int i = 0; i < q; i++)
             printf(" %d", negative[i]);
-        puts("");
+        printf("\n");
         break;
     }
     }
